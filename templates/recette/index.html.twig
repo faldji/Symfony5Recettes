@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recettes{% endblock %}
+
+{% block body %}
+    <h1>Recettes</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 table-responsive-md table-sm">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Titre</th>
+                        <th>SousTitre</th>
+                        <th>Ingredients</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for recette in recettes %}
+                        <tr>
+                            <td>{{ recette.id }}</td>
+                            <td>{{ recette.titre }}</td>
+                            <td>{{ recette.sousTitre }}</td>
+                            <td>
+                                {% for ingredient in recette.ingredients %}
+                                    {{  ingredient.nom }}
+                                {% endfor %}
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a   href="{{ path('recette_show', {'id': recette.id}) }}"
+                                         class="btn btn-info">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a  href="{{ path('recette_edit', {'id': recette.id}) }}"
+                                        class="btn btn-success">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    {{ include('recette/_delete_form.html.twig') }}
+                                </div>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <a class="btn-lg btn-success" href="{{ path('recette_new') }}">Nouvelle recette</a>
+{% endblock %}

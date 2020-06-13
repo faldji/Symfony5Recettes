@@ -25,10 +25,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Form" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\fadia\PhpstormProjects\Symfony5Recettes\src\Form" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -43,7 +49,7 @@
       <workItem from="1591964057807" duration="758000" />
       <workItem from="1591964835421" duration="11598000" />
       <workItem from="1591976461537" duration="7126000" />
-      <workItem from="1591983687253" duration="1755000" />
+      <workItem from="1591983687253" duration="48285000" />
     </task>
     <servers />
   </component>
@@ -59,9 +65,17 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1591976423668" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1592029686745">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1536.864@0.0.1536.864" timestamp="1592029686745" />
     <state x="479" y="149" width="577" height="566" key="find.popup" timestamp="1591984792926">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="479" y="149" width="577" height="566" key="find.popup/0.0.1536.864@0.0.1536.864" timestamp="1591984792926" />
+    <state x="425" y="199" key="run.anything.popup" timestamp="1592001710108">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="199" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1592001710108" />
   </component>
 </project>

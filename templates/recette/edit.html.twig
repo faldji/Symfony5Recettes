@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Recette{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <h1>Edit Recette</h1>
+                <div class="btn-group-sm">
+                    <a class="btn btn-sm btn-secondary" href="{{ path('recette_index') }}">
+                        <i class="fas fa-home"></i></a>
+                </div>
+                {{ include('recette/_form.html.twig', {'button_label': 'Update'}) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
