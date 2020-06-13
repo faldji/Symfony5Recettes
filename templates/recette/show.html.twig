@@ -3,28 +3,49 @@
 {% block title %}Recette{% endblock %}
 
 {% block body %}
-    <h1>Recette</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ recette.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ recette.titre }}</td>
-            </tr>
-            <tr>
-                <th>SousTitre</th>
-                <td>{{ recette.sousTitre }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('recette_index') }}">back to list</a>
-
-    <a href="{{ path('recette_edit', {'id': recette.id}) }}">edit</a>
-
-    {{ include('recette/_delete_form.html.twig') }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h1>Recette - {{ recette.titre }}</h1>
+                {{ include('recette/_delete_form.html.twig') }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 mx-auto table-responsive-md table-md">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ recette.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Titre</th>
+                        <td>{{ recette.titre }}</td>
+                    </tr>
+                    <tr>
+                        <th>SousTitre</th>
+                        <td>{{ recette.sousTitre }}</td>
+                    </tr>
+                    <tr>
+                        <th>Ingredients</th>
+                        <td>
+                        {% for ingredient in recette.ingredients %}
+                        {{ ingredient.nom }}({{ ingredient.quantite }})&nbsp;
+                        {% endfor %}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-md-4 mx-auto">
+                        <div class="btn-group">
+                            <a class="btn btn-md btn-secondary" href="{{ path('recette_index') }}">
+                                <i class="fas fa-arrow-left"></i>&nbsp;Back</a>
+                            <a class="btn btn-md btn-primary" href="{{ path('recette_edit', {'id': recette.id}) }}"><i class="fas fa-edit"></i>&nbsp;Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Ingredient;
 use App\Entity\Recette;
 use App\Form\RecetteType;
+use App\Repository\IngredientRepository;
 use App\Repository\RecetteRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -42,7 +44,6 @@ class RecetteController extends AbstractController
         $form = $this->createForm(RecetteType::class, $recette);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            dump($request->query->all());
             $entityManager->persist($recette);
             $entityManager->flush();
 
@@ -69,18 +70,25 @@ class RecetteController extends AbstractController
 
     /**
      * @Route("/recette/{id}/edit", name="recette_edit", methods={"GET","POST"})
+     * @param $id
      * @param Request $request
      * @param Recette $recette
+     * @param RecetteRepository $recetteRepository
      * @return Response
      */
     public function edit(Request $request, Recette $recette): Response
     {
         $form = $this->createForm(RecetteType::class, $recette);
+        $oldIngredient = new ArrayCollection();
+        foreach ($recette->getIngredients() as $ingredient)
+            $oldIngredient->add($ingredient);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
+            foreach ($oldIngredient as $item){
+                    if (!$recette->getIngredients()->contains($item))
+                        $this->getDoctrine()->getManager()->remove($item);
+                }
+                $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('recette_index');
         }
 
@@ -100,6 +108,9 @@ class RecetteController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$recette->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
+            foreach ($recette->getIngredients() as $item){
+                $entityManager->remove($item);
+            }
             $entityManager->remove($recette);
             $entityManager->flush();
         }

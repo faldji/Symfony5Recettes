@@ -47,4 +47,12 @@ class IngredientRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findNull()
+    {
+        return $this->createQueryBuilder('i')
+            ->andWhere('i.recette = :val')
+            ->setParameter('val',null)
+            ->getQuery()
+            ->getResult();
+    }
 }

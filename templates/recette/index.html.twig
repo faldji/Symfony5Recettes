@@ -3,8 +3,12 @@
 {% block title %}Recettes{% endblock %}
 
 {% block body %}
-    <h1>Recettes</h1>
     <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Recettes</h1>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12 table-responsive-md table-sm">
                 <table class="table">
@@ -51,6 +55,10 @@
                 </table>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                <a class="btn-lg btn-success" href="{{ path('recette_new') }}">Nouvelle recette</a>
+            </div>
+        </div>
     </div>
-    <a class="btn-lg btn-success" href="{{ path('recette_new') }}">Nouvelle recette</a>
 {% endblock %}

@@ -84,15 +84,6 @@ class Recette
         return $this->ingredients;
     }
 
-    public function addIngredients(Ingredient $ingredient): self
-    {
-        if (!$this->ingredients->contains($ingredient)) {
-            $this->ingredients[] = $ingredient;
-            $ingredient->setRecette($this);
-        }
-
-        return $this;
-    }
     public function addIngredient(Ingredient $ingredient): self
     {
         if (!$this->ingredients->contains($ingredient)) {
@@ -103,19 +94,6 @@ class Recette
         return $this;
     }
     public function removeIngredient(Ingredient $ingredient): self
-    {
-        if ($this->ingredients->contains($ingredient)) {
-            $this->ingredients->removeElement($ingredient);
-            // set the owning side to null (unless already changed)
-            if ($ingredient->getRecette() === $this) {
-                $ingredient->setRecette(null);
-            }
-        }
-
-        return $this;
-    }
-
-    public function removeIngredients(Ingredient $ingredient): self
     {
         if ($this->ingredients->contains($ingredient)) {
             $this->ingredients->removeElement($ingredient);
