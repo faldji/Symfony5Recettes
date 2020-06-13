@@ -1,7 +1,7 @@
 #ContactForm
 <ol>
     <li>
-        Installation Symfony CLI [download](https://symfony.com/download)
+        Installation Symfony CLI https://symfony.com/download
         <ul>
             <li>
                 <code> composer install</code>

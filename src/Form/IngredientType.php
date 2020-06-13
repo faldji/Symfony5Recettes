@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Entity\Ingredient;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,7 +15,7 @@ class IngredientType extends AbstractType
     {
         $builder
             ->add('nom',TextType::class,["attr"=>["class"=>"form-control"]])
-            ->add('quantite',NumberType::class,["attr"=>["class"=>"form-control"]])
+            ->add('quantite',IntegerType::class,["attr"=>["class"=>"form-control"],"required"=>false])
         ;
     }
 
